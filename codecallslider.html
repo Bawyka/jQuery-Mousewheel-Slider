@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript" src="underscore-min.js"></script>
+<script type="text/javascript">
+
+var page=0;
+var jak = new Array("jak1","jak2","jak3","jak4");
+var i = 0;
+var InBetweeFramesMilliSeconds =1000;
+var MinMouseDelta =380;
+
+var d = new Date();
+var segundos =  d.getTime();
+
+function handle(delta)
+{
+       d = null;
+        d = new Date();
+    
+        if ( d.getTime() < (segundos + InBetweeFramesMilliSeconds) ) { return;} ;
+ 
+    if (delta > 0)
+        {
+              i--;
+        }
+    else
+        {
+         i++;
+        }
+        
+        if(i<0){ i=0;}
+        if( i>3){i=3;}
+        
+   goToByScroll( jak[i] );
+
+       d = null;
+        d = new Date();    
+     segundos = d.getTime();
+}
+
+function wheel(event)
+{
+            var delta = 0;
+            if (!event) /* For IE. */
+                            event = window.event;
+                                
+            if (event.wheelDelta)
+                { /* IE/Opera. */
+                            delta = event.wheelDelta/MinMouseDelta;
+//                          delta = event.wheelDelta;
+            } else if (event.detail) { /** Mozilla case. */
+                            /** In Mozilla, sign of delta is different than in IE.
+                                 * Also, delta is multiple of 3.
+                                 */
+                            delta = -event.detail/3;
+            }
+                
+            /** If delta is nonzero, handle it.
+                 * Basically, delta is now positive if wheel was scrolled up,
+                 * and negative, if wheel was scrolled down.
+                 */
+                
+            if (  delta!=0 ) handle(delta);
+                                
+            /** Prevent default actions caused by mouse wheel.
+                 * That might be ugly, but we handle scrolls somehow
+                 * anyway, so don't bother here..
+                 */
+                
+            if (event.preventDefault)
+                            event.preventDefault();
+                                
+    event.returnValue = false;
+}
+
+if (window.addEventListener)
+    window.addEventListener('DOMMouseScroll', wheel, false);
+window.onmousewheel = document.onmousewheel = wheel;
+
+// scroll to id
+function goToByScroll(id)
+{
+$('html,body').animate({scrollTop: $("#"+id).offset().top},"fast");
+}
+
+
+
+</script>
+</head>
+<body>
+<style>
+html,body { width: 100%; height: 100%;}
+div { margin: 0 auto; border: 1px solid; width: 500px; height: 100%; text-align: center; }
+</style>
+<div id="jak1">1</div>
+<div id="jak2">2</div>
+<div id="jak3">3</div>
+<div id="jak4">4</div>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript" src="underscore-min.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+
+	var tempScrollTop,currentScrollTop = 0;
+
+	var way = "default"; // направление
+	
+	// массив якорей
+	var jak = new Array("jak1","jak2","jak3","jak4");
+		i = 0;
+		
+	// эта фун-я скроллит к нужному id
+	function goToByScroll(id)
+	{  
+		$('html,body').animate({scrollTop: $("#"+id).offset().top},"fast"); 
+	}
+		
+		$(window).scroll(function()
+		{
+				
+				currentScrollTop = $(window).scrollTop();
+			
+				if (tempScrollTop < currentScrollTop)
+				{ 
+					way= "down"; // крутнули вниз колесо
+					i++;
+				} 
+				else if (tempScrollTop > currentScrollTop)
+				{
+					way= "up"; // крутнули вверх колесо
+					i--;
+				}
+				
+				tempScrollTop = currentScrollTop;
+				
+				if (i<0) { ++i; }
+				if (i>=4){ --i; }	
+				
+				// переходим к нужному якорю
+				goToByScroll(jak[i]);		
+			
+		});
+	
+	});
+</script>
+</head>
+<body>
+<style>
+html,body { width: 100%; height: 100%;}
+div { margin: 0 auto; border: 1px solid; width: 500px; height: 100%; text-align: center; }
+</style>
+<div id="jak1">1</div>
+<div id="jak2">2</div>
+<div id="jak3">3</div>
+<div id="jak4">4</div>
+</body>
+</html>

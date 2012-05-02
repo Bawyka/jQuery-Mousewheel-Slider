@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+</head>
+<body>
+
+<style>
+	html,body { width: 100%; height: 100%;}
+	div { margin: 0 auto; border: 1px solid; width: 500px; height: 100%; text-align: center; }
+</style>
+
+<div id="monitor" style="position:fixed;width:500px;top:20px;left:0;border:1px solid #faa;height:50px">монитор</div>
+
+<div id="jak1">1</div>
+<div id="jak2">2</div>
+<div id="jak3">3</div>
+<div id="jak4">4</div>
+
+<script type="text/javascript">
+
+$$BS = bingoScroller = {
+
+	tempScrollTop:0,
+	currentScrollTop:0,
+	bingo:false,
+	way:'default',
+
+	jak:new Array("jak1","jak2","jak3","jak4"),
+	i:0,
+ 
+	monitor:function() {
+		
+		$('#monitor').html(
+			'tempScrollTop: ' + $$BS.tempScrollTop +
+			' currentScrollTop: ' + $$BS.currentScrollTop +
+			' bingo: ' + $$BS.bingo +
+			' way: ' + $$BS.way +
+			' i: ' + $$BS.i
+		);
+		
+	},
+
+	goToByScroll:function(id) {  
+		
+		var o = $("#"+id).offset().top;
+		
+		$('html,body').animate({scrollTop: o},"fast", function() {
+			
+			$$BS.monitor();
+			window.setTimeout(function() {
+			
+				$$BS.bingo = false;
+				$$BS.monitor();
+			
+			},400);
+		}); 
+		
+	},
+ 
+	onScroll:function() {
+	
+		this.monitor();
+		
+		if (this.bingo) return; else this.bingo = true; 
+		
+		this.currentScrollTop = $(window).scrollTop();
+ 
+		if (this.tempScrollTop < this.currentScrollTop) { 
+		
+			this.way= "down";
+			this.i--;
+			
+		} else if (this.tempScrollTop > this.currentScrollTop) {
+		
+			this.way= "up";
+			this.i++;
+		
+		}
+ 
+		this.tempScrollTop = this.currentScrollTop;
+ 
+		if (this.i<0) { i = 0; }
+		if (this.i>4) { i = this.jak.length - 1; } 
+ 
+		// so, we go the current anchor
+		this.goToByScroll(this.jak[this.i]); 
+		
+	}
+ 
+};
+
+
+$(document).ready(function(){
+	
+	$(window).scroll( function() { $$BS.onScroll(); } );
+
+});
+
+</script>
+
+</body>
+</html>
