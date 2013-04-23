@@ -1,30 +1,26 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<!--[if lt IE 7 ]> <html class="ie6"> <![endif]-->
-<!--[if IE 7 ]> <html class="ie7"> <![endif]-->
-<!--[if IE 8 ]> <html class="ie8"> <![endif]-->
-<!--[if IE 9 ]> <html class="ie9"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!-->
+<!DOCTYPE HTML>
 <html>
-<!--<![endif]-->
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<title>MERCEDES</title>
+<title>jQuery Mousewheel Slider</title>
 <link href="http://fonts.googleapis.com/css?family=Kameron" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script type="text/javascript" src="js/log4javascript.js"></script>
-<script type="text/javascript">
-	var log = log4javascript.getDefaultLogger();
- </script>
+<link type="text/css" rel="stylesheet" href="css/slide.css" media="all"/>
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="http://code.jquery.com/jquery-migrate-1.1.1.min.js"></script>
 <script type="text/javascript" src="js/jquery.mousewheel.js"></script>
 <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
 <script type="text/javascript" src="js/jquery-ui-1.8.18.custom.min.js"></script>
-<script type="text/javascript" src="js/underscore-min.js"></script>
-<script type="text/javascript" src="js/driver.js"></script>
-<link type="text/css" rel="stylesheet" href="css/style.css" media="all"/>
+<script type="text/javascript" src="js/jquery-mousewheel-slilder-1.1.js"></script>
+<script type="text/javascript">
+$(function(){
+    
+    $('#slider').mwslider();
+    
+});
+</script>
 </head>
 <body>
-<div id="content">
-	<!-- test -->
+<div id="wrapper">
 	<div id="icons">
 		<h3>CARS "MERCEDES"</h3>
 		<select id="ease">
@@ -62,30 +58,30 @@
 			<option value="easeInOutBounce">easeInOutBounce</option>
 		</select>
 	</div>
-	<!-- // END test -->
-	<div id="holder">
-		<ul id="slider">
-			<li>
-			<a id="jak1">
-			<img src="http://zavodi.ua/files/auto_version_photo/i4a70327bd70b7.jpg" alt="merc1"/>
-			</a>
-			</li>
-			<li>
-			<a id="jak2">
-			<img src="http://www.ksau.info/up/files/5122.jpg" alt="merc2"/>
-			</a>
-			</li>
-			<li>
-			<a id="jak3">
-			<img src="http://i.market.autoua.net/data/catalog/0/6/p906b.jpg" alt="merc3"/>
-			</a>
-			</li>
-			<li>
-			<a id="jak4">
-			<img src="http://bestcars.gdo.kiev.ua/mercedes/cls/cls55_amg_02.jpg" alt="merc4"/>
-			</a>
-			</li>
-		</ul>
-	</div>
+    <div id="holder">
+    	<ul id="slider">
+    		<li>
+    		  <a>
+    		      <img src="images/mercklasscw203.jpg" alt="merc1"/>
+    		  </a>
+    		</li>
+    		<li>
+    		  <a>
+    		      <img src="images/mercklasscw204.jpg" alt="merc2"/>
+    		  </a>
+    		</li>
+    		<li>
+    		  <a>
+    		      <img src="images/mercklassgl.jpg" alt="merc3"/>
+    		  </a>
+    		</li>
+    		<li>
+    		  <a>
+    		      <img src="images/mercklassbenscl.jpg" alt="merc4"/>
+    		  </a>
+    		</li>
+    	</ul>
+    </div>
 </div>
+</body>
 </html>
