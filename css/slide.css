@@ -1,6 +1,6 @@
 * { margin: 0; padding: 0; }
 html,body { width: 100%; height: 100%; background: #110C39; overflow: hidden; }
-#wrapper { width: 1000px; margin: 0 auto; }
+#wrapper { width: 800px; margin: 0 auto; }
 
 #icons {
     position: fixed; left: 0; top: 0;

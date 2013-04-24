@@ -7,6 +7,8 @@
         // default settings 
         var settings = $.extend({
             'startFrom': 0,
+            'speed': 'slow',
+            'easing': 'swing',
             'bottomMargin': 5
         }, options);
         
@@ -45,7 +47,7 @@
                         
                         ++current;
                                                                                                           
-                        $mwslider.children('.current').slideUp();
+                        $mwslider.children('.current').slideUp(settings.speed, settings.easing);
                                                 
                         if (current>=total) --current;
                        
@@ -62,7 +64,7 @@
                     // set current
                     setCurrent(current); 
                     
-                    $mwslider.children('.current').slideDown();      
+                    $mwslider.children('.current').slideDown(settings.speed, settings.easing);      
                 }
                 
             });
