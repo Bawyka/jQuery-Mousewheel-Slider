@@ -26,7 +26,12 @@ You can use your own pictures.
 
 ### Options ###
 
-options will be available soon
+```js
+    $('#slider').mwslider({
+        'speed':'slow',
+        'easing': 'easeInBounce'
+    });
+```
 
 ## Dependencies
 * jQuery 1.9
