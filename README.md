@@ -1,5 +1,7 @@
 #jQuery Mousewheel Slider 1.1 Plugin
 
+### http://bawyka.github.io/jQuery-Mousewheel-Slider
+
 ## Initialization
 
 You must have a DOM-structure like this before:
