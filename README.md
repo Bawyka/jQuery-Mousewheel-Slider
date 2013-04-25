@@ -1,6 +1,6 @@
 #jQuery Mousewheel Slider 1.1 Plugin
 
-### http://bawyka.github.io/jQuery-Mousewheel-Slider
+### See [DEMO] (http://bawyka.github.io/jQuery-Mousewheel-Slider)
 
 ## Initialization
 
