@@ -1,7 +1,7 @@
 * { margin: 0; padding: 0; }
 html,body { width: 100%; height: 100%; background: #110C39; overflow: hidden; }
 #wrapper { width: 800px; margin: 0 auto; }
-a { text-decoration: none; }
+ul { list-style: none; }
 #icons {
     position: fixed; left: 0; top: 0;
     width: 100%;
