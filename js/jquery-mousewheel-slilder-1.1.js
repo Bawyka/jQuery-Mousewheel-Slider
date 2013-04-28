@@ -1,3 +1,23 @@
+/*
+ * jQuery Mousewheel Slider Plugin 1.1.0
+ * Composed by Bawyka T.P.
+ * Author web-site: https://github.com/Bawyka
+ * Plugin Repository: https://github.com/Bawyka/jQuery-Mousewheel-Slider
+ * 
+ * Copyright (c) Bawyka T.P. (https://github/Bawyka), 2013.
+ * Dual-licensed under the BSD (BSD-LICENSE.txt) and GPL (GPL-LICENSE.txt)
+ * licenses.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.    See the
+ * GNU General Public License for more details.
+ */
 (function( $ ) {
        
     $.fn.mwslider = function( options ) {
