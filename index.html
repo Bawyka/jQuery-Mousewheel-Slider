@@ -16,7 +16,7 @@ $(function(){
     
     $('#slider').mwslider({
         'speed':'slow',
-        'easing': 'easeInBounce'
+        'easing': 'jswing'
     });
     
 });
@@ -25,10 +25,10 @@ $(function(){
 <body>
 <div id="wrapper">
 	<div id="icons">
-		<h3>CARS "MERCEDES"</h3>
-		<select id="ease">
+		<h3 id="slideTitle" style="line-height: 3;">CARS "MERCEDES"</h3>
+		<!--<select id="ease">
 			<option value="jswing">jswing</option>
-			<!-- <option value="def">def</option> -->
+			<option value="def">def</option>
 			<option value="easeInQuad">easeInQuad</option>
 			<option value="easeOutQuad">easeOutQuad</option>
 			<option value="easeInOutQuad">easeInOutQuad</option>
@@ -60,30 +60,33 @@ $(function(){
 			<option value="easeOutBounce">easeOutBounce</option>
 			<option value="easeInOutBounce">easeInOutBounce</option>
 		</select>
+        -->
 	</div>
     <div id="holder">
+        <a class="arrow" id="Up"><span>Up</span></a>
     	<ul id="slider">
     		<li>
     		  <a>
-    		      <img src="images/mercklasscw203.jpg" alt="merc1"/>
+    		      <img src="images/mercklasscw203.jpg" alt="Mercedes C-klasse W203 (Мерседес Ц-класса)" />
     		  </a>
     		</li>
     		<li>
     		  <a>
-    		      <img src="images/mercklasscw204.jpg" alt="merc2"/>
+    		      <img src="images/mercklasscw204.jpg" alt="Mercedes C-klasse W204 (Мерседес Ц-класса)"/>
     		  </a>
     		</li>
     		<li>
     		  <a>
-    		      <img src="images/mercklassgl.jpg" alt="merc3"/>
+    		      <img src="images/mercklassgl.jpg" alt="Mercedes GL-klasse (Мерседес ГЛ-класса)"/>
     		  </a>
     		</li>
     		<li>
     		  <a>
-    		      <img src="images/mercklassbenscl.jpg" alt="merc4"/>
+    		      <img src="images/mercklassbenscl.jpg" alt="Mercedes-Benz CL-class"/>
     		  </a>
     		</li>
     	</ul>
+        <a class="arrow" id="Down"><span>Down</span></a>
     </div>
 </div>
 </body>

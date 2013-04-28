@@ -1,5 +1,5 @@
 (function( $ ) {
-    
+       
     $.fn.mwslider = function( options ) {
         
         var $mwslider = $(this);
@@ -10,7 +10,8 @@
             'speed': 'slow',
             'easing': 'swing',
             'bottomMargin': 5
-        }, options);
+        }, options);     
+        
         
         // lets check the placeholder width
         var placehw = this.parent().width();
@@ -26,7 +27,40 @@
         
         // Total Elements (lenght)
         var total = this.children().length;
+        
+        // On Arrow Click Event
+        this.parent().find('.arrow').on('click',function(){ 
+        
+             if ($(this).attr("id")=="Down") {
                 
+                if (current<total-1) {
+                    
+                    ++current;
+                    
+                    $mwslider.children('.current').slideUp(settings.speed, settings.easing);
+                    
+                    if (current>=total) --current;
+                           
+                    // set current
+                    setCurrent(current);
+                    
+                }
+                
+             } else {
+                
+                --current;
+                    
+                if (current<0) ++current;
+                
+                // set current
+                setCurrent(current); 
+                
+                $mwslider.children('.current').slideDown(settings.speed, settings.easing);
+                
+             }
+            
+        });
+                        
         // main context        
         return this.children().each(function($this){
         
@@ -68,9 +102,9 @@
                 }
                 
             });
-            
+                        
         });
-        
+                        
         // function set current
         function setCurrent(c){
             
@@ -80,8 +114,11 @@
             // First Item is Current
             $mwslider.children().filter(':eq('+c+')').addClass('current');
             
+            // Slide Title
+            $('#slideTitle').text($mwslider.children('.current').find('img').attr('alt'));
+                                    
         }
-        
+                        
     };
     
 })(jQuery);
