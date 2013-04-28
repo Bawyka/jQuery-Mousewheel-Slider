@@ -1,5 +1,7 @@
 #jQuery Mousewheel Slider 1.1 Plugin
 
+### See [DEMO] (http://bawyka.github.io/jQuery-Mousewheel-Slider)
+
 ## Initialization
 
 You must have a DOM-structure like this before:
@@ -26,7 +28,12 @@ You can use your own pictures.
 
 ### Options ###
 
-options will be available soon
+```js
+    $('#slider').mwslider({
+        'speed':'slow',
+        'easing': 'easeInBounce'
+    });
+```
 
 ## Dependencies
 * jQuery 1.9
